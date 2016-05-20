@@ -1,0 +1,105 @@
+Info: Start Nativelink Simulation process
+
+========= EDA Simulation Settings =====================
+
+Sim Mode              :  Gate
+Family                :  cycloneii
+Quartus root          :  h:/altera/quartus/bin64/
+Quartus sim root      :  h:/altera/quartus/eda/sim_lib
+Simulation Tool       :  modelsim-altera
+Simulation Language   :  vhdl
+Version               :  93
+Simulation Mode       :  GUI
+Sim Output File       :  DrumSetDriver.vho
+Sim SDF file          :  DrumSetDriver__vhdl.sdo
+Sim dir               :  simulation\modelsim
+
+=======================================================
+
+Info: Starting NativeLink simulation with ModelSim-Altera software
+Sourced NativeLink script h:/altera/quartus/common/tcl/internal/nativelink/modelsim.tcl
+Warning: File DrumSetDriver_run_msim_gate_vhdl.do already exists - backing up current file as DrumSetDriver_run_msim_gate_vhdl.do.bak11
+Probing transcript
+ModelSim-Altera Info: # Reading H:/altera/modelsim_ase/tcl/vsim/pref.tcl 
+ModelSim-Altera Info: # do DrumSetDriver_run_msim_gate_vhdl.do 
+ModelSim-Altera Info: # if {[file exists gate_work]} {
+ModelSim-Altera Info: # 	vdel -lib gate_work -all
+ModelSim-Altera Info: # }
+ModelSim-Altera Info: # vlib gate_work
+ModelSim-Altera Info: # vmap work gate_work
+ModelSim-Altera Info: # Copying H:\altera\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+ModelSim-Altera Info: # Modifying modelsim.ini
+ModelSim-Altera Warning: # ** Warning: Copied H:\altera\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+ModelSim-Altera Info: #          Updated modelsim.ini.
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # vcom -93 -work work {DrumSetDriver.vho}
+ModelSim-Altera Info: # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+ModelSim-Altera Info: # -- Loading package STANDARD
+ModelSim-Altera Info: # -- Loading package TEXTIO
+ModelSim-Altera Info: # -- Loading package std_logic_1164
+ModelSim-Altera Info: # -- Loading package VITAL_Timing
+ModelSim-Altera Info: # -- Loading package VITAL_Primitives
+ModelSim-Altera Info: # -- Loading package cycloneii_atom_pack
+ModelSim-Altera Info: # -- Loading package cycloneii_components
+ModelSim-Altera Info: # -- Compiling entity IO_MemoryInterface
+ModelSim-Altera Info: # -- Compiling architecture structure of IO_MemoryInterface
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # do "H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/DrumSetDriver.do"
+ModelSim-Altera Info: # vsim IO_MemoryInterface
+ModelSim-Altera Info: # vsim IO_MemoryInterface 
+ModelSim-Altera Info: # Loading std.standard
+ModelSim-Altera Info: # Loading std.textio(body)
+ModelSim-Altera Info: # Loading ieee.std_logic_1164(body)
+ModelSim-Altera Info: # Loading ieee.vital_timing(body)
+ModelSim-Altera Info: # Loading ieee.vital_primitives(body)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_atom_pack(body)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_components
+ModelSim-Altera Info: # Loading work.io_memoryinterface(structure)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_lcell_ff(vital_lcell_ff)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_and1(altvital)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
+ModelSim-Altera Info: # Loading ieee.std_logic_arith(body)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_io(structure)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_mux21(altvital)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_dffe(behave)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_asynch_io(behave)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_clkctrl(vital_clkctrl)
+ModelSim-Altera Info: # Loading cycloneii.cycloneii_ena_reg(behave)
+ModelSim-Altera Warning: # ** Warning: Design size of 2 instances exceeds ModelSim ALTERA recommended capacity.
+ModelSim-Altera Info: # This may because you are loading cell libraries which are not recommended with
+ModelSim-Altera Info: # the ModelSim Altera version. Expect performance to be adversely affected.
+ModelSim-Altera Info: # view wave
+ModelSim-Altera Info: # .main_pane.wave.interior.cs.body.pw.wf
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # add wave clock
+ModelSim-Altera Warning: # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: #           File in use by: Zach  Hostname: ZACH-PC  ProcessID: 9816
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: #           Attempting to use alternate WLF file "./wlft4727da".
+ModelSim-Altera Warning: # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: #           Using alternate file: ./wlft4727da
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # add wave mem_write
+ModelSim-Altera Info: # add wave mem_addr
+ModelSim-Altera Info: # add wave mem_data
+ModelSim-Altera Info: # add wave reset
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # add wave stickHitHigh
+ModelSim-Altera Info: # add wave stickHitLow
+ModelSim-Altera Info: # add wave data_out
+ModelSim-Altera Info: # add wave restart
+ModelSim-Altera Info: # add wave Measure
+ModelSim-Altera Info: # add wave nextM
+ModelSim-Altera Info: # add wave currM
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # force clock 0 0, 1 10000 -repeat 20000
+ModelSim-Altera Info: # force reset 0 0
+ModelSim-Altera Info: # force mem_addr 1101 0, 1110 40000, 1111 80000, 0000 1020000, 1100 1040000
+ModelSim-Altera Info: # force mem_data 0000000000000000 0, 0000000000000011 40000, 0000000000000001 80000, 0000000000000011 1000000, 1010101010101010 1040000
+ModelSim-Altera Info: # force mem_write 1 0, 0 20000, 1 40000, 0 60000, 1 80000, 0 100000, 1 1000000, 0 1020000, 1 1040000, 0 1060000
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # 
+ModelSim-Altera Info: # run 10000000	
+Info: NativeLink simulation flow was successful

@@ -1,0 +1,763 @@
+Analysis & Synthesis report for DrumSetDriver
+Wed Apr 27 06:48:52 2016
+Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis IP Cores Summary
+  9. State Machine - |IO_MemoryInterface|DRUMSETDRIVER:inst2|next_state
+ 10. State Machine - |IO_MemoryInterface|DRUMSETDRIVER:inst2|state
+ 11. Logic Cells Representing Combinational Loops
+ 12. Registers Removed During Synthesis
+ 13. Removed Registers Triggering Further Register Optimizations
+ 14. General Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: Reg_16:SWITCHES4|lpm_ff:lpm_ff_component
+ 17. Parameter Settings for User Entity Instance: lpm_decode0:inst3|lpm_decode:LPM_DECODE_component
+ 18. Parameter Settings for User Entity Instance: Reg_16:PUSH_BUTTON|lpm_ff:lpm_ff_component
+ 19. Parameter Settings for User Entity Instance: Reg_16:SWITCHS|lpm_ff:lpm_ff_component
+ 20. Parameter Settings for User Entity Instance: Reg_16:HEX_DISPLAY|lpm_ff:lpm_ff_component
+ 21. Parameter Settings for User Entity Instance: Reg_16:LED|lpm_ff:lpm_ff_component
+ 22. Port Connectivity Checks: "timer:inst4|falu:LowClcok"
+ 23. Port Connectivity Checks: "timer:inst4|falu:HighClock"
+ 24. Elapsed Time Per Partition
+ 25. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Apr 27 06:48:52 2016      ;
+; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
+; Revision Name                      ; DrumSetDriver                              ;
+; Top-level Entity Name              ; IO_MemoryInterface                         ;
+; Family                             ; Cyclone II                                 ;
+; Total logic elements               ; 334                                        ;
+;     Total combinational functions  ; 237                                        ;
+;     Dedicated logic registers      ; 209                                        ;
+; Total registers                    ; 209                                        ;
+; Total pins                         ; 119                                        ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35U484C7       ;                    ;
+; Top-level entity name                                                      ; IO_MemoryInterface ; DrumSetDriver      ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                    ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                          ; Library ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------+---------+
+; mux2.vhd                         ; yes             ; User VHDL File                     ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/mux2.vhd                  ;         ;
+; IO_MemoryInterface.bdf           ; yes             ; User Block Diagram/Schematic File  ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/IO_MemoryInterface.bdf    ;         ;
+; various_logic_unit.vhd           ; yes             ; User VHDL File                     ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/various_logic_unit.vhd    ;         ;
+; timer.vhd                        ; yes             ; User VHDL File                     ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/timer.vhd                 ;         ;
+; reg16.vhd                        ; yes             ; User VHDL File                     ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/reg16.vhd                 ;         ;
+; Reg1.vhd                         ; yes             ; User VHDL File                     ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/Reg1.vhd                  ;         ;
+; Reg_16.vhd                       ; yes             ; User Wizard-Generated File         ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/Reg_16.vhd                ;         ;
+; not32.vhd                        ; yes             ; User VHDL File                     ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/not32.vhd                 ;         ;
+; mux4.vhd                         ; yes             ; User VHDL File                     ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/mux4.vhd                  ;         ;
+; mux2_32.vhd                      ; yes             ; User VHDL File                     ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/mux2_32.vhd               ;         ;
+; lpm_decode0.vhd                  ; yes             ; User Wizard-Generated File         ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/lpm_decode0.vhd           ;         ;
+; lab7_task2.vhd                   ; yes             ; User VHDL File                     ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/lab7_task2.vhd            ;         ;
+; lab7_task1.vhd                   ; yes             ; User VHDL File                     ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/lab7_task1.vhd            ;         ;
+; ioMux.vhd                        ; yes             ; User VHDL File                     ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/ioMux.vhd                 ;         ;
+; falu.vhd                         ; yes             ; User VHDL File                     ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/falu.vhd                  ;         ;
+; Project/DRUMSETDRIVER.vhd        ; yes             ; User VHDL File                     ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/Project/DRUMSETDRIVER.vhd ;         ;
+; lpm_ff.tdf                       ; yes             ; Megafunction                       ; h:/altera/quartus/libraries/megafunctions/lpm_ff.tdf                  ;         ;
+; lpm_constant.inc                 ; yes             ; Megafunction                       ; h:/altera/quartus/libraries/megafunctions/lpm_constant.inc            ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                       ; h:/altera/quartus/libraries/megafunctions/aglobal130.inc              ;         ;
+; lpm_decode.tdf                   ; yes             ; Megafunction                       ; h:/altera/quartus/libraries/megafunctions/lpm_decode.tdf              ;         ;
+; declut.inc                       ; yes             ; Megafunction                       ; h:/altera/quartus/libraries/megafunctions/declut.inc                  ;         ;
+; altshift.inc                     ; yes             ; Megafunction                       ; h:/altera/quartus/libraries/megafunctions/altshift.inc                ;         ;
+; lpm_compare.inc                  ; yes             ; Megafunction                       ; h:/altera/quartus/libraries/megafunctions/lpm_compare.inc             ;         ;
+; db/decode_c8f.tdf                ; yes             ; Auto-Generated Megafunction        ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/db/decode_c8f.tdf         ;         ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 334   ;
+;                                             ;       ;
+; Total combinational functions               ; 237   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 101   ;
+;     -- 3 input functions                    ; 64    ;
+;     -- <=2 input functions                  ; 72    ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 214   ;
+;     -- arithmetic mode                      ; 23    ;
+;                                             ;       ;
+; Total registers                             ; 209   ;
+;     -- Dedicated logic registers            ; 209   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 119   ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; reset ;
+; Maximum fan-out                             ; 131   ;
+; Total fan-out                               ; 1517  ;
+; Average fan-out                             ; 2.68  ;
++---------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                  ;
++-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node              ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                             ; Library Name ;
++-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
+; |IO_MemoryInterface                     ; 237 (10)          ; 209 (0)      ; 0           ; 0            ; 0       ; 0         ; 119  ; 0            ; |IO_MemoryInterface                                                                             ;              ;
+;    |DRUMSETDRIVER:inst2|                ; 94 (94)           ; 94 (94)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|DRUMSETDRIVER:inst2                                                         ;              ;
+;    |Reg16:inst5|                        ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|Reg16:inst5                                                                 ;              ;
+;    |Reg16:inst9|                        ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|Reg16:inst9                                                                 ;              ;
+;    |Reg1:inst10|                        ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|Reg1:inst10                                                                 ;              ;
+;    |Reg1:inst11|                        ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|Reg1:inst11                                                                 ;              ;
+;    |Reg_16:HEX_DISPLAY|                 ; 0 (0)             ; 7 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|Reg_16:HEX_DISPLAY                                                          ;              ;
+;       |lpm_ff:lpm_ff_component|         ; 0 (0)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|Reg_16:HEX_DISPLAY|lpm_ff:lpm_ff_component                                  ;              ;
+;    |Reg_16:LED|                         ; 0 (0)             ; 8 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|Reg_16:LED                                                                  ;              ;
+;       |lpm_ff:lpm_ff_component|         ; 0 (0)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|Reg_16:LED|lpm_ff:lpm_ff_component                                          ;              ;
+;    |Reg_16:PUSH_BUTTON|                 ; 0 (0)             ; 4 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|Reg_16:PUSH_BUTTON                                                          ;              ;
+;       |lpm_ff:lpm_ff_component|         ; 0 (0)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|Reg_16:PUSH_BUTTON|lpm_ff:lpm_ff_component                                  ;              ;
+;    |Reg_16:SWITCHES4|                   ; 0 (0)             ; 16 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|Reg_16:SWITCHES4                                                            ;              ;
+;       |lpm_ff:lpm_ff_component|         ; 0 (0)             ; 16 (16)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|Reg_16:SWITCHES4|lpm_ff:lpm_ff_component                                    ;              ;
+;    |Reg_16:SWITCHS|                     ; 0 (0)             ; 10 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|Reg_16:SWITCHS                                                              ;              ;
+;       |lpm_ff:lpm_ff_component|         ; 0 (0)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|Reg_16:SWITCHS|lpm_ff:lpm_ff_component                                      ;              ;
+;    |ioMux:inst21|                       ; 15 (15)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|ioMux:inst21                                                                ;              ;
+;    |lpm_decode0:inst3|                  ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|lpm_decode0:inst3                                                           ;              ;
+;       |lpm_decode:LPM_DECODE_component| ; 2 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|lpm_decode0:inst3|lpm_decode:LPM_DECODE_component                           ;              ;
+;          |decode_c8f:auto_generated|    ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|lpm_decode0:inst3|lpm_decode:LPM_DECODE_component|decode_c8f:auto_generated ;              ;
+;    |timer:inst4|                        ; 116 (6)           ; 36 (36)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4                                                                 ;              ;
+;       |falu:HighClock|                  ; 32 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock                                                  ;              ;
+;          |lab7_task2:lab7_task2Sim|     ; 32 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim                         ;              ;
+;             |lab7_task1:sim0|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim0         ;              ;
+;             |lab7_task1:sim10|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim10        ;              ;
+;             |lab7_task1:sim11|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim11        ;              ;
+;             |lab7_task1:sim12|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim12        ;              ;
+;             |lab7_task1:sim13|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim13        ;              ;
+;             |lab7_task1:sim14|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim14        ;              ;
+;             |lab7_task1:sim15|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim15        ;              ;
+;             |lab7_task1:sim16|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim16        ;              ;
+;             |lab7_task1:sim17|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim17        ;              ;
+;             |lab7_task1:sim18|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim18        ;              ;
+;             |lab7_task1:sim19|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim19        ;              ;
+;             |lab7_task1:sim1|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim1         ;              ;
+;             |lab7_task1:sim20|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim20        ;              ;
+;             |lab7_task1:sim21|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim21        ;              ;
+;             |lab7_task1:sim22|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim22        ;              ;
+;             |lab7_task1:sim23|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim23        ;              ;
+;             |lab7_task1:sim24|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim24        ;              ;
+;             |lab7_task1:sim25|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim25        ;              ;
+;             |lab7_task1:sim26|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim26        ;              ;
+;             |lab7_task1:sim27|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim27        ;              ;
+;             |lab7_task1:sim28|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim28        ;              ;
+;             |lab7_task1:sim29|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim29        ;              ;
+;             |lab7_task1:sim2|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim2         ;              ;
+;             |lab7_task1:sim30|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim30        ;              ;
+;             |lab7_task1:sim31|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim31        ;              ;
+;             |lab7_task1:sim3|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim3         ;              ;
+;             |lab7_task1:sim4|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim4         ;              ;
+;             |lab7_task1:sim5|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim5         ;              ;
+;             |lab7_task1:sim6|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim6         ;              ;
+;             |lab7_task1:sim7|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim7         ;              ;
+;             |lab7_task1:sim8|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim8         ;              ;
+;             |lab7_task1:sim9|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim9         ;              ;
+;       |falu:LowClcok|                   ; 44 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok                                                   ;              ;
+;          |lab7_task2:lab7_task2Sim|     ; 44 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim                          ;              ;
+;             |lab7_task1:sim10|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim10         ;              ;
+;             |lab7_task1:sim12|          ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim12         ;              ;
+;             |lab7_task1:sim13|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim13         ;              ;
+;             |lab7_task1:sim15|          ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim15         ;              ;
+;             |lab7_task1:sim16|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim16         ;              ;
+;             |lab7_task1:sim18|          ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim18         ;              ;
+;             |lab7_task1:sim21|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim21         ;              ;
+;             |lab7_task1:sim22|          ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim22         ;              ;
+;             |lab7_task1:sim24|          ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim24         ;              ;
+;             |lab7_task1:sim25|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim25         ;              ;
+;             |lab7_task1:sim27|          ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim27         ;              ;
+;             |lab7_task1:sim28|          ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim28         ;              ;
+;             |lab7_task1:sim30|          ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim30         ;              ;
+;             |lab7_task1:sim3|           ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim3          ;              ;
+;             |lab7_task1:sim4|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim4          ;              ;
+;             |lab7_task1:sim6|           ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim6          ;              ;
+;             |lab7_task1:sim7|           ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim7          ;              ;
+;             |lab7_task1:sim9|           ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim9          ;              ;
+;       |mux2_32:countersim|              ; 34 (34)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |IO_MemoryInterface|timer:inst4|mux2_32:countersim                                              ;              ;
++-----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                ;
++--------+--------------+---------+--------------+--------------+----------------------------------------+-------------------------------------------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                        ; IP Include File                                             ;
++--------+--------------+---------+--------------+--------------+----------------------------------------+-------------------------------------------------------------+
+; Altera ; LPM_FF       ; N/A     ; N/A          ; N/A          ; |IO_MemoryInterface|Reg_16:HEX_DISPLAY ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/Reg_16.vhd      ;
+; Altera ; LPM_DECODE   ; N/A     ; N/A          ; N/A          ; |IO_MemoryInterface|lpm_decode0:inst3  ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/lpm_decode0.vhd ;
+; Altera ; LPM_FF       ; N/A     ; N/A          ; N/A          ; |IO_MemoryInterface|Reg_16:LED         ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/Reg_16.vhd      ;
+; Altera ; LPM_FF       ; N/A     ; N/A          ; N/A          ; |IO_MemoryInterface|Reg_16:PUSH_BUTTON ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/Reg_16.vhd      ;
+; Altera ; LPM_FF       ; N/A     ; N/A          ; N/A          ; |IO_MemoryInterface|Reg_16:SWITCHES4   ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/Reg_16.vhd      ;
+; Altera ; LPM_FF       ; N/A     ; N/A          ; N/A          ; |IO_MemoryInterface|Reg_16:SWITCHS     ; H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/Reg_16.vhd      ;
++--------+--------------+---------+--------------+--------------+----------------------------------------+-------------------------------------------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |IO_MemoryInterface|DRUMSETDRIVER:inst2|next_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
++------------------------------+------------------------+------------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+-------------------+
+; Name                         ; next_state.RESETSTICKS ; next_state.LOAD_NEXT_MEASURE ; next_state.PLAY16SIXTEENTH ; next_state.PLAY15SIXTEENTH ; next_state.PLAY14SIXTEENTH ; next_state.PLAY13SIXTEENTH ; next_state.PLAY12SIXTEENTH ; next_state.PLAY11SIXTEENTH ; next_state.PLAY10SIXTEENTH ; next_state.PLAY9SIXTEENTH ; next_state.PLAY8SIXTEENTH ; next_state.PLAY7SIXTEENTH ; next_state.PLAY6SIXTEENTH ; next_state.PLAY5SIXTEENTH ; next_state.PLAY4SIXTEENTH ; next_state.PLAY3SIXTEENTH ; next_state.PLAY2SIXTEENTH ; next_state.PLAY1SIXTEENTH ; next_state.RESET1 ;
++------------------------------+------------------------+------------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+-------------------+
+; next_state.RESET1            ; 0                      ; 0                            ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                 ;
+; next_state.PLAY1SIXTEENTH    ; 0                      ; 0                            ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 1                 ;
+; next_state.PLAY2SIXTEENTH    ; 0                      ; 0                            ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 1                 ;
+; next_state.PLAY3SIXTEENTH    ; 0                      ; 0                            ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 1                 ;
+; next_state.PLAY4SIXTEENTH    ; 0                      ; 0                            ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 1                 ;
+; next_state.PLAY5SIXTEENTH    ; 0                      ; 0                            ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                         ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                 ;
+; next_state.PLAY6SIXTEENTH    ; 0                      ; 0                            ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                         ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                 ;
+; next_state.PLAY7SIXTEENTH    ; 0                      ; 0                            ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                         ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                 ;
+; next_state.PLAY8SIXTEENTH    ; 0                      ; 0                            ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                         ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                 ;
+; next_state.PLAY9SIXTEENTH    ; 0                      ; 0                            ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 1                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                 ;
+; next_state.PLAY10SIXTEENTH   ; 0                      ; 0                            ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 1                          ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                 ;
+; next_state.PLAY11SIXTEENTH   ; 0                      ; 0                            ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 1                          ; 0                          ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                 ;
+; next_state.PLAY12SIXTEENTH   ; 0                      ; 0                            ; 0                          ; 0                          ; 0                          ; 0                          ; 1                          ; 0                          ; 0                          ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                 ;
+; next_state.PLAY13SIXTEENTH   ; 0                      ; 0                            ; 0                          ; 0                          ; 0                          ; 1                          ; 0                          ; 0                          ; 0                          ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                 ;
+; next_state.PLAY14SIXTEENTH   ; 0                      ; 0                            ; 0                          ; 0                          ; 1                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                 ;
+; next_state.PLAY15SIXTEENTH   ; 0                      ; 0                            ; 0                          ; 1                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                 ;
+; next_state.PLAY16SIXTEENTH   ; 0                      ; 0                            ; 1                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                 ;
+; next_state.LOAD_NEXT_MEASURE ; 0                      ; 1                            ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                 ;
+; next_state.RESETSTICKS       ; 1                      ; 0                            ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                          ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 0                         ; 1                 ;
++------------------------------+------------------------+------------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+----------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+---------------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |IO_MemoryInterface|DRUMSETDRIVER:inst2|state                                                                                                                                                                                                                                                                                                                                                                                                               ;
++-------------------------+-------------------+-------------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+--------------+
+; Name                    ; state.RESETSTICKS ; state.LOAD_NEXT_MEASURE ; state.PLAY16SIXTEENTH ; state.PLAY15SIXTEENTH ; state.PLAY14SIXTEENTH ; state.PLAY13SIXTEENTH ; state.PLAY12SIXTEENTH ; state.PLAY11SIXTEENTH ; state.PLAY10SIXTEENTH ; state.PLAY9SIXTEENTH ; state.PLAY8SIXTEENTH ; state.PLAY7SIXTEENTH ; state.PLAY6SIXTEENTH ; state.PLAY5SIXTEENTH ; state.PLAY4SIXTEENTH ; state.PLAY3SIXTEENTH ; state.PLAY2SIXTEENTH ; state.PLAY1SIXTEENTH ; state.RESET1 ;
++-------------------------+-------------------+-------------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+--------------+
+; state.RESET1            ; 0                 ; 0                       ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0            ;
+; state.PLAY1SIXTEENTH    ; 0                 ; 0                       ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 1            ;
+; state.PLAY2SIXTEENTH    ; 0                 ; 0                       ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 1            ;
+; state.PLAY3SIXTEENTH    ; 0                 ; 0                       ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 1            ;
+; state.PLAY4SIXTEENTH    ; 0                 ; 0                       ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 1            ;
+; state.PLAY5SIXTEENTH    ; 0                 ; 0                       ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1            ;
+; state.PLAY6SIXTEENTH    ; 0                 ; 0                       ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1            ;
+; state.PLAY7SIXTEENTH    ; 0                 ; 0                       ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1            ;
+; state.PLAY8SIXTEENTH    ; 0                 ; 0                       ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1            ;
+; state.PLAY9SIXTEENTH    ; 0                 ; 0                       ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 1                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1            ;
+; state.PLAY10SIXTEENTH   ; 0                 ; 0                       ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 1                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1            ;
+; state.PLAY11SIXTEENTH   ; 0                 ; 0                       ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 1                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1            ;
+; state.PLAY12SIXTEENTH   ; 0                 ; 0                       ; 0                     ; 0                     ; 0                     ; 0                     ; 1                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1            ;
+; state.PLAY13SIXTEENTH   ; 0                 ; 0                       ; 0                     ; 0                     ; 0                     ; 1                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1            ;
+; state.PLAY14SIXTEENTH   ; 0                 ; 0                       ; 0                     ; 0                     ; 1                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1            ;
+; state.PLAY15SIXTEENTH   ; 0                 ; 0                       ; 0                     ; 1                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1            ;
+; state.PLAY16SIXTEENTH   ; 0                 ; 0                       ; 1                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1            ;
+; state.LOAD_NEXT_MEASURE ; 0                 ; 1                       ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1            ;
+; state.RESETSTICKS       ; 1                 ; 0                       ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                     ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 0                    ; 1            ;
++-------------------------+-------------------+-------------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+-----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+----------------------+--------------+
+
+
++------------------------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops                                 ;
++-------------------------------------------------------------------------+----+
+; Logic Cell Name                                                         ;    ;
++-------------------------------------------------------------------------+----+
+; timer:inst4|falu:LowClcok|lab7_task2:lab7_task2Sim|lab7_task1:sim32|S~0 ;    ;
+; timer:inst4|mux2_32:countersim|Mux31~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux32~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux30~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux29~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux28~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux27~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux26~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux25~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux24~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux23~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux22~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux21~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux20~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux19~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux18~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux17~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux16~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux15~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux14~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux13~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux12~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux11~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux10~0                                  ;    ;
+; timer:inst4|mux2_32:countersim|Mux9~0                                   ;    ;
+; timer:inst4|mux2_32:countersim|Mux8~0                                   ;    ;
+; timer:inst4|mux2_32:countersim|Mux7~0                                   ;    ;
+; timer:inst4|mux2_32:countersim|Mux6~0                                   ;    ;
+; timer:inst4|mux2_32:countersim|Mux5~0                                   ;    ;
+; timer:inst4|mux2_32:countersim|Mux4~0                                   ;    ;
+; timer:inst4|mux2_32:countersim|Mux3~0                                   ;    ;
+; timer:inst4|mux2_32:countersim|Mux2~0                                   ;    ;
+; timer:inst4|mux2_32:countersim|Mux1~0                                   ;    ;
+; Number of logic cells representing combinational loops                  ; 33 ;
++-------------------------------------------------------------------------+----+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                    ;
++--------------------------------------------------------+--------------------------------------------------------------+
+; Register name                                          ; Reason for Removal                                           ;
++--------------------------------------------------------+--------------------------------------------------------------+
+; Reg_16:SWITCHS|lpm_ff:lpm_ff_component|dffs[10..15]    ; Stuck at GND due to stuck port data_in                       ;
+; Reg_16:PUSH_BUTTON|lpm_ff:lpm_ff_component|dffs[4..15] ; Stuck at GND due to stuck port data_in                       ;
+; timer:inst4|datab[1..32]                               ; Stuck at GND due to stuck port data_in                       ;
+; timer:inst4|counter_0_sel[0]                           ; Stuck at GND due to stuck port data_in                       ;
+; timer:inst4|alu_op[1]                                  ; Merged with timer:inst4|alu_op[0]                            ;
+; timer:inst4|alu_op[0]                                  ; Lost fanout                                                  ;
+; DRUMSETDRIVER:inst2|next_state.PLAY1SIXTEENTH          ; Merged with DRUMSETDRIVER:inst2|next_state.LOAD_NEXT_MEASURE ;
+; DRUMSETDRIVER:inst2|next_state.RESETSTICKS             ; Merged with DRUMSETDRIVER:inst2|next_state.LOAD_NEXT_MEASURE ;
+; DRUMSETDRIVER:inst2|next_state.LOAD_NEXT_MEASURE       ; Stuck at GND due to stuck port data_in                       ;
+; Total Number of Removed Registers = 56                 ;                                                              ;
++--------------------------------------------------------+--------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                ;
++-----------------------+---------------------------+----------------------------------------+
+; Register name         ; Reason for Removal        ; Registers Removed due to This Register ;
++-----------------------+---------------------------+----------------------------------------+
+; timer:inst4|datab[32] ; Stuck at GND              ; timer:inst4|alu_op[0]                  ;
+;                       ; due to stuck port data_in ;                                        ;
++-----------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 209   ;
+; Number of registers using Synchronous Clear  ; 24    ;
+; Number of registers using Synchronous Load   ; 16    ;
+; Number of registers using Asynchronous Clear ; 104   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 126   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
+; 17:1               ; 2 bits    ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; Yes        ; |IO_MemoryInterface|DRUMSETDRIVER:inst2|piece1Polar               ;
+; 1:1                ; 33 bits   ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |IO_MemoryInterface|timer:inst4|falu:HighClock|mux4:mux4Sim|Mux14 ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |IO_MemoryInterface|DRUMSETDRIVER:inst2|next_state.RESETSTICKS    ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 9 LEs                ; 6 LEs                  ; No         ; |IO_MemoryInterface|ioMux:inst21|Mux14                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Reg_16:SWITCHES4|lpm_ff:lpm_ff_component ;
++------------------------+------------+-------------------------------------------------+
+; Parameter Name         ; Value      ; Type                                            ;
++------------------------+------------+-------------------------------------------------+
+; LPM_WIDTH              ; 16         ; Signed Integer                                  ;
+; LPM_AVALUE             ; UNUSED     ; Untyped                                         ;
+; LPM_SVALUE             ; UNUSED     ; Untyped                                         ;
+; LPM_FFTYPE             ; DFF        ; Untyped                                         ;
+; DEVICE_FAMILY          ; Cyclone II ; Untyped                                         ;
+; CBXI_PARAMETER         ; NOTHING    ; Untyped                                         ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                      ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                    ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                    ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                  ;
++------------------------+------------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: lpm_decode0:inst3|lpm_decode:LPM_DECODE_component ;
++------------------------+------------+----------------------------------------------------------+
+; Parameter Name         ; Value      ; Type                                                     ;
++------------------------+------------+----------------------------------------------------------+
+; LPM_WIDTH              ; 4          ; Signed Integer                                           ;
+; LPM_DECODES            ; 16         ; Signed Integer                                           ;
+; LPM_PIPELINE           ; 0          ; Untyped                                                  ;
+; CASCADE_CHAIN          ; MANUAL     ; Untyped                                                  ;
+; DEVICE_FAMILY          ; Cyclone II ; Untyped                                                  ;
+; CBXI_PARAMETER         ; decode_c8f ; Untyped                                                  ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                               ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                             ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                             ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                           ;
++------------------------+------------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Reg_16:PUSH_BUTTON|lpm_ff:lpm_ff_component ;
++------------------------+------------+---------------------------------------------------+
+; Parameter Name         ; Value      ; Type                                              ;
++------------------------+------------+---------------------------------------------------+
+; LPM_WIDTH              ; 16         ; Signed Integer                                    ;
+; LPM_AVALUE             ; UNUSED     ; Untyped                                           ;
+; LPM_SVALUE             ; UNUSED     ; Untyped                                           ;
+; LPM_FFTYPE             ; DFF        ; Untyped                                           ;
+; DEVICE_FAMILY          ; Cyclone II ; Untyped                                           ;
+; CBXI_PARAMETER         ; NOTHING    ; Untyped                                           ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                    ;
++------------------------+------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Reg_16:SWITCHS|lpm_ff:lpm_ff_component ;
++------------------------+------------+-----------------------------------------------+
+; Parameter Name         ; Value      ; Type                                          ;
++------------------------+------------+-----------------------------------------------+
+; LPM_WIDTH              ; 16         ; Signed Integer                                ;
+; LPM_AVALUE             ; UNUSED     ; Untyped                                       ;
+; LPM_SVALUE             ; UNUSED     ; Untyped                                       ;
+; LPM_FFTYPE             ; DFF        ; Untyped                                       ;
+; DEVICE_FAMILY          ; Cyclone II ; Untyped                                       ;
+; CBXI_PARAMETER         ; NOTHING    ; Untyped                                       ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                ;
++------------------------+------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Reg_16:HEX_DISPLAY|lpm_ff:lpm_ff_component ;
++------------------------+------------+---------------------------------------------------+
+; Parameter Name         ; Value      ; Type                                              ;
++------------------------+------------+---------------------------------------------------+
+; LPM_WIDTH              ; 16         ; Signed Integer                                    ;
+; LPM_AVALUE             ; UNUSED     ; Untyped                                           ;
+; LPM_SVALUE             ; UNUSED     ; Untyped                                           ;
+; LPM_FFTYPE             ; DFF        ; Untyped                                           ;
+; DEVICE_FAMILY          ; Cyclone II ; Untyped                                           ;
+; CBXI_PARAMETER         ; NOTHING    ; Untyped                                           ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                                    ;
++------------------------+------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Reg_16:LED|lpm_ff:lpm_ff_component ;
++------------------------+------------+-------------------------------------------+
+; Parameter Name         ; Value      ; Type                                      ;
++------------------------+------------+-------------------------------------------+
+; LPM_WIDTH              ; 16         ; Signed Integer                            ;
+; LPM_AVALUE             ; UNUSED     ; Untyped                                   ;
+; LPM_SVALUE             ; UNUSED     ; Untyped                                   ;
+; LPM_FFTYPE             ; DFF        ; Untyped                                   ;
+; DEVICE_FAMILY          ; Cyclone II ; Untyped                                   ;
+; CBXI_PARAMETER         ; NOTHING    ; Untyped                                   ;
+; AUTO_CARRY_CHAINS      ; ON         ; AUTO_CARRY                                ;
+; IGNORE_CARRY_BUFFERS   ; OFF        ; IGNORE_CARRY                              ;
+; AUTO_CASCADE_CHAINS    ; ON         ; AUTO_CASCADE                              ;
+; IGNORE_CASCADE_BUFFERS ; OFF        ; IGNORE_CASCADE                            ;
++------------------------+------------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "timer:inst4|falu:LowClcok"                                                           ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; b[32] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; a_inv ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; b_inv ; Input  ; Info     ; Stuck at GND                                                                        ;
+; z     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; v     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; c     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "timer:inst4|falu:HighClock"                                                          ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; a_inv ; Input  ; Info     ; Stuck at GND                                                                        ;
+; b_inv ; Input  ; Info     ; Stuck at GND                                                                        ;
+; z     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; v     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; c     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+    Info: Processing started: Wed Apr 27 06:48:49 2016
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DrumSetDriver -c DrumSetDriver
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file mux2.vhd
+    Info (12022): Found design unit 1: mux2-behavior
+    Info (12023): Found entity 1: mux2
+Info (12021): Found 1 design units, including 1 entities, in source file io_memoryinterface.bdf
+    Info (12023): Found entity 1: IO_MemoryInterface
+Info (12021): Found 2 design units, including 1 entities, in source file various_logic_unit.vhd
+    Info (12022): Found design unit 1: various_logic_unit-behavior
+    Info (12023): Found entity 1: various_logic_unit
+Info (12021): Found 2 design units, including 1 entities, in source file timer.vhd
+    Info (12022): Found design unit 1: timer-behavior
+    Info (12023): Found entity 1: timer
+Info (12021): Found 2 design units, including 1 entities, in source file reg16.vhd
+    Info (12022): Found design unit 1: Reg16-behavior
+    Info (12023): Found entity 1: Reg16
+Info (12021): Found 2 design units, including 1 entities, in source file reg1buff.vhd
+    Info (12022): Found design unit 1: Reg1Buff-behavior
+    Info (12023): Found entity 1: Reg1Buff
+Info (12021): Found 2 design units, including 1 entities, in source file reg1.vhd
+    Info (12022): Found design unit 1: Reg1-behavior
+    Info (12023): Found entity 1: Reg1
+Info (12021): Found 2 design units, including 1 entities, in source file reg_16.vhd
+    Info (12022): Found design unit 1: reg_16-SYN
+    Info (12023): Found entity 1: Reg_16
+Info (12021): Found 2 design units, including 1 entities, in source file not32.vhd
+    Info (12022): Found design unit 1: not32-behavior
+    Info (12023): Found entity 1: not32
+Info (12021): Found 2 design units, including 1 entities, in source file mux4.vhd
+    Info (12022): Found design unit 1: mux4-behavior
+    Info (12023): Found entity 1: mux4
+Info (12021): Found 2 design units, including 1 entities, in source file mux2_32.vhd
+    Info (12022): Found design unit 1: mux2_32-behavior
+    Info (12023): Found entity 1: mux2_32
+Info (12021): Found 2 design units, including 1 entities, in source file mux2_1.vhd
+    Info (12022): Found design unit 1: mux2_1-SYN
+    Info (12023): Found entity 1: MUX2_1
+Info (12021): Found 2 design units, including 1 entities, in source file lpm_decode0.vhd
+    Info (12022): Found design unit 1: lpm_decode0-SYN
+    Info (12023): Found entity 1: lpm_decode0
+Info (12021): Found 2 design units, including 1 entities, in source file lab7_task2.vhd
+    Info (12022): Found design unit 1: lab7_task2-behavior
+    Info (12023): Found entity 1: lab7_task2
+Info (12021): Found 2 design units, including 1 entities, in source file lab7_task1.vhd
+    Info (12022): Found design unit 1: lab7_task1-behavior
+    Info (12023): Found entity 1: lab7_task1
+Info (12021): Found 2 design units, including 1 entities, in source file iomux.vhd
+    Info (12022): Found design unit 1: ioMUX-design
+    Info (12023): Found entity 1: ioMux
+Info (12021): Found 2 design units, including 1 entities, in source file falu.vhd
+    Info (12022): Found design unit 1: falu-behavior
+    Info (12023): Found entity 1: falu
+Info (12021): Found 2 design units, including 1 entities, in source file project/drumsetdriver.vhd
+    Info (12022): Found design unit 1: DRUMSETDRIVER-a
+    Info (12023): Found entity 1: DRUMSETDRIVER
+Info (12127): Elaborating entity "IO_MemoryInterface" for the top level hierarchy
+Info (12128): Elaborating entity "DRUMSETDRIVER" for hierarchy "DRUMSETDRIVER:inst2"
+Info (12128): Elaborating entity "Reg_16" for hierarchy "Reg_16:SWITCHES4"
+Info (12128): Elaborating entity "lpm_ff" for hierarchy "Reg_16:SWITCHES4|lpm_ff:lpm_ff_component"
+Info (12130): Elaborated megafunction instantiation "Reg_16:SWITCHES4|lpm_ff:lpm_ff_component"
+Info (12133): Instantiated megafunction "Reg_16:SWITCHES4|lpm_ff:lpm_ff_component" with the following parameter:
+    Info (12134): Parameter "lpm_fftype" = "DFF"
+    Info (12134): Parameter "lpm_type" = "LPM_FF"
+    Info (12134): Parameter "lpm_width" = "16"
+Info (12128): Elaborating entity "lpm_decode0" for hierarchy "lpm_decode0:inst3"
+Info (12128): Elaborating entity "lpm_decode" for hierarchy "lpm_decode0:inst3|lpm_decode:LPM_DECODE_component"
+Info (12130): Elaborated megafunction instantiation "lpm_decode0:inst3|lpm_decode:LPM_DECODE_component"
+Info (12133): Instantiated megafunction "lpm_decode0:inst3|lpm_decode:LPM_DECODE_component" with the following parameter:
+    Info (12134): Parameter "lpm_decodes" = "16"
+    Info (12134): Parameter "lpm_type" = "LPM_DECODE"
+    Info (12134): Parameter "lpm_width" = "4"
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_c8f.tdf
+    Info (12023): Found entity 1: decode_c8f
+Info (12128): Elaborating entity "decode_c8f" for hierarchy "lpm_decode0:inst3|lpm_decode:LPM_DECODE_component|decode_c8f:auto_generated"
+Info (12128): Elaborating entity "Reg1" for hierarchy "Reg1:inst11"
+Info (12128): Elaborating entity "ioMux" for hierarchy "ioMux:inst21"
+Info (12128): Elaborating entity "timer" for hierarchy "timer:inst4"
+Warning (10036): Verilog HDL or VHDL warning at timer.vhd(26): object "alu_op_l" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at timer.vhd(29): object "hV" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at timer.vhd(29): object "hC" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at timer.vhd(29): object "hZ" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at timer.vhd(29): object "lV" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at timer.vhd(29): object "lZ" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at timer.vhd(29): object "lC" assigned a value but never read
+Warning (10492): VHDL Process Statement warning at timer.vhd(54): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at timer.vhd(54): signal "restart" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at timer.vhd(59): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "falu" for hierarchy "timer:inst4|falu:HighClock"
+Warning (10541): VHDL Signal Declaration warning at falu.vhd(67): used implicit default value for signal "and0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at falu.vhd(67): used implicit default value for signal "or0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at falu.vhd(67): used implicit default value for signal "xor0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info (12128): Elaborating entity "not32" for hierarchy "timer:inst4|falu:HighClock|not32:notASim"
+Info (12128): Elaborating entity "mux2" for hierarchy "timer:inst4|falu:HighClock|mux2:mux2Sim0"
+Info (12128): Elaborating entity "lab7_task2" for hierarchy "timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim"
+Info (12128): Elaborating entity "lab7_task1" for hierarchy "timer:inst4|falu:HighClock|lab7_task2:lab7_task2Sim|lab7_task1:sim0"
+Info (12128): Elaborating entity "various_logic_unit" for hierarchy "timer:inst4|falu:HighClock|various_logic_unit:various_logic_unitSim"
+Info (12128): Elaborating entity "mux4" for hierarchy "timer:inst4|falu:HighClock|mux4:mux4Sim"
+Info (12128): Elaborating entity "mux2_32" for hierarchy "timer:inst4|mux2_32:countersim"
+Info (12128): Elaborating entity "Reg16" for hierarchy "Reg16:inst5"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "data_out[15]" is stuck at GND
+    Warning (13410): Pin "data_out[14]" is stuck at GND
+    Warning (13410): Pin "data_out[13]" is stuck at GND
+    Warning (13410): Pin "data_out[12]" is stuck at GND
+    Warning (13410): Pin "data_out[11]" is stuck at GND
+    Warning (13410): Pin "data_out[10]" is stuck at GND
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 478 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 37 input pins
+    Info (21059): Implemented 82 output pins
+    Info (21061): Implemented 359 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 21 warnings
+    Info: Peak virtual memory: 539 megabytes
+    Info: Processing ended: Wed Apr 27 06:48:52 2016
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+

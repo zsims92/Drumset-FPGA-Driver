@@ -1,0 +1,21 @@
+
+
+H:/Onedrive/UNL/Classes/SPRING2015/CSCE/230TA/Project/ProjectFiles/Reg_16.vhd
+
+Apr 27 03AM:16:27>: Megafunction LPM_FF is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+H:/Onedrive/UNL/Classes/SPRING2015/CSCE/230TA/Project/ProjectFiles/Reg_16.vhd
+
+Apr 27 03AM:16:28>: Megafunction LPM_FF is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+H:/Onedrive/UNL/Classes/SPRING2015/CSCE/230TA/Project/ProjectFiles/Reg_16.vhd
+
+Apr 27 03AM:16:28>: Megafunction LPM_FF is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted
+
+H:/Onedrive/UNL/Classes/SPRING2015/CSCE/230TA/Project/ProjectFiles/Reg_16.vhd
+
+Apr 27 03AM:16:34>: Megafunction LPM_FF is not listed in any 
+wizard.lst file in the specified library path(s).Wizard launch aborted

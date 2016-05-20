@@ -1,0 +1,69 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'clock'
+Slack : -11.932
+TNS   : -326.351
+
+Type  : Slow Model Setup 'DRUMSETDRIVER:inst2|sixteenthCLK'
+Slack : -2.170
+TNS   : -50.976
+
+Type  : Slow Model Hold 'clock'
+Slack : -2.690
+TNS   : -2.690
+
+Type  : Slow Model Hold 'DRUMSETDRIVER:inst2|sixteenthCLK'
+Slack : 0.377
+TNS   : 0.000
+
+Type  : Slow Model Recovery 'clock'
+Slack : -2.073
+TNS   : -60.337
+
+Type  : Slow Model Removal 'clock'
+Slack : 2.194
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'clock'
+Slack : -1.631
+TNS   : -192.263
+
+Type  : Slow Model Minimum Pulse Width 'DRUMSETDRIVER:inst2|sixteenthCLK'
+Slack : -0.611
+TNS   : -64.766
+
+Type  : Fast Model Setup 'clock'
+Slack : -4.030
+TNS   : -78.776
+
+Type  : Fast Model Setup 'DRUMSETDRIVER:inst2|sixteenthCLK'
+Slack : -0.185
+TNS   : -0.820
+
+Type  : Fast Model Hold 'clock'
+Slack : -1.524
+TNS   : -1.524
+
+Type  : Fast Model Hold 'DRUMSETDRIVER:inst2|sixteenthCLK'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'clock'
+Slack : -0.442
+TNS   : -6.504
+
+Type  : Fast Model Removal 'clock'
+Slack : 0.951
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'clock'
+Slack : -1.380
+TNS   : -157.380
+
+Type  : Fast Model Minimum Pulse Width 'DRUMSETDRIVER:inst2|sixteenthCLK'
+Slack : -0.500
+TNS   : -53.000
+
+------------------------------------------------------------

@@ -1,0 +1,82 @@
+# Reading H:/altera/modelsim_ase/tcl/vsim/pref.tcl 
+# do DrumSetDriver_run_msim_gate_vhdl.do 
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }
+# vlib gate_work
+# vmap work gate_work
+# Copying H:\altera\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied H:\altera\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {DrumSetDriver.vho}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package cycloneii_atom_pack
+# -- Loading package cycloneii_components
+# -- Compiling entity IO_MemoryInterface
+# -- Compiling architecture structure of IO_MemoryInterface
+# 
+# do "H:/Onedrive/UNL/Classes/SPRING2016/CSCE/230/DrumSetDriver.do"
+# vsim IO_MemoryInterface
+# vsim IO_MemoryInterface 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading cycloneii.cycloneii_atom_pack(body)
+# Loading cycloneii.cycloneii_components
+# Loading work.io_memoryinterface(structure)
+# Loading cycloneii.cycloneii_lcell_ff(vital_lcell_ff)
+# Loading cycloneii.cycloneii_and1(altvital)
+# Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
+# Loading ieee.std_logic_arith(body)
+# Loading cycloneii.cycloneii_io(structure)
+# Loading cycloneii.cycloneii_mux21(altvital)
+# Loading cycloneii.cycloneii_dffe(behave)
+# Loading cycloneii.cycloneii_asynch_io(behave)
+# Loading cycloneii.cycloneii_clkctrl(vital_clkctrl)
+# Loading cycloneii.cycloneii_ena_reg(behave)
+# ** Warning: Design size of 2 instances exceeds ModelSim ALTERA recommended capacity.
+# This may because you are loading cell libraries which are not recommended with
+# the ModelSim Altera version. Expect performance to be adversely affected.
+# view wave
+# .main_pane.wave.interior.cs.body.pw.wf
+# 
+# add wave clock
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: Zach  Hostname: ZACH-PC  ProcessID: 9816
+# 
+#           Attempting to use alternate WLF file "./wlft4727da".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlft4727da
+# 
+# add wave mem_write
+# add wave mem_addr
+# add wave mem_data
+# add wave reset
+# 
+# add wave stickHitHigh
+# add wave stickHitLow
+# add wave data_out
+# add wave restart
+# add wave Measure
+# add wave nextM
+# add wave currM
+# 
+# force clock 0 0, 1 10000 -repeat 20000
+# force reset 0 0
+# force mem_addr 1101 0, 1110 40000, 1111 80000, 0000 1020000, 1100 1040000
+# force mem_data 0000000000000000 0, 0000000000000011 40000, 0000000000000001 80000, 0000000000000011 1000000, 1010101010101010 1040000
+# force mem_write 1 0, 0 20000, 1 40000, 0 60000, 1 80000, 0 100000, 1 1000000, 0 1020000, 1 1040000, 0 1060000
+# 
+# 
+# run 10000000	
